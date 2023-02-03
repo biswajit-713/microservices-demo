@@ -29,9 +29,8 @@ public class EmployeeController {
 
     @GetMapping("/{id}")
     public Employee findById(@PathVariable("id") String id) {
-        LOGGER.info("Employee Search: id={}", id);
+        LOGGER.info("Employee Find: {}", keyvalue("id", id), keyvalue("path", "/id"));
         Employee employee = repository.findById(id).get();
-        LOGGER.info("Employee Found: employee={}", employee.toString());
         return employee;
     }
 
